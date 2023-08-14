@@ -1,69 +1,74 @@
 from pydantic import BaseModel
 from typing import str, int, Optional
+from datetime import date
 
 
 class CreateOder(BaseModel):
-    pass
+    order_date: date
+    required_date: date
+    shipped_date: date
+    shipped_via: str
+    freight: str
+    ship_name: str[Optional] = None
+    ship_address: str[Optional] = None
+    ship_city: str[Optional] = None
+    ship_region: str[Optional] = None
+    ship_postal_code: str[Optional] = None
+    ship_country: str[Optional] = None
 
 
 class CreateShipper(BaseModel):
-    pass
+    compnay_name: str
+    phone_number: str
 
 
 class CreateEmployee(BaseModel):
-    pass
+    title: str
+    title_of_courtesy: str[Optional] = None
+    first_name: str
+    last_name: str
+    date_of_birth: date
+    hire_date: date
+    address: str
+    region: str
 
 
 class CreateCategory(BaseModel):
-    pass
+    category_name: str
+    description: str
+    picture: str[Optional] = None
 
 
 class CreateOrderDetail(BaseModel):
-    pass
+    unit_price: float
+    quantity: int
+    status: bool[Optional] = None
 
 
 class CreateCustomer(BaseModel):
-    pass
+    company_name: str
+    company_contact: str
+    contact_person: str
+    customer_address: str
+    customer_city: str
+    customer_region: str
+    customer_postcode: str[Optional] = None
 
 
 class CreateProduct(BaseModel):
-    pass
+    product_name: str
+    quantity_per_unit: int
+    unit_price: float
+    units_in_stock: int
+    units_on_order: int
+    reorder_level: int[Optional] = None
+    product_status: bool[Optional] = None
 
 
 class CreateSupplier(BaseModel):
-    pass
-
-
-#  Update
-
-
-class UpdateOder(BaseModel):
-    pass
-
-
-class UpdateShipper(BaseModel):
-    pass
-
-
-class UpdateEmployee(BaseModel):
-    pass
-
-
-class UpdateCategory(BaseModel):
-    pass
-
-
-class UpdateOrderDetail(BaseModel):
-    pass
-
-
-class UpdateCustomer(BaseModel):
-    pass
-
-
-class UpdateProduct(BaseModel):
-    pass
-
-
-class UpdateSupplier(BaseModel):
-    pass
+    company_name: str
+    contact_name: str
+    contact_title: str
+    address: str
+    city: str
+    region: str
